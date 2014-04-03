@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140403143717) do
     t.string   "password",  limit: 25, null: false
     t.integer  "wins"
     t.integer  "loses"
+    t.integer  "ties"
     t.datetime "create_at"
   end
 
