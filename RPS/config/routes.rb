@@ -1,5 +1,5 @@
 RPS::Application.routes.draw do
-<<<<<<< HEAD
+
   match 'login/index', :via => :get
   match 'login/parseUser', :via => :post
   #get "login/index"
