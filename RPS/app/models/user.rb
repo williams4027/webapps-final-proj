@@ -1,14 +1,8 @@
 class User < ActiveRecord::Base
-
-   def signUp
-	u = users.new
-	u.user_name = //from signup page
-	u.password = //from signup page
-	u.wins = 0
-	u.losses = 0
-	u.create_at = Time.now
-	u.save
-   end
-
+  attr_accessor :user_name
+  attr_accessor :password
+  attr_accessor :wins
+  attr_accessor :losses
+  attr_accessor :ties
    
 end

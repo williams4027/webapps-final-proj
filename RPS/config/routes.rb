@@ -2,6 +2,8 @@ RPS::Application.routes.draw do
 
   match 'login/index', :via => :get
   match 'login/parseUser', :via => :post
+  resources :users
+
   #get "login/index"
 
   # The priority is based upon order of creation: first created -> highest priority.

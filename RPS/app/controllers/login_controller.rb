@@ -1,9 +1,12 @@
 class LoginController < ApplicationController
   def index
+    @user=User.new
   end
-  
+  def create
+    
+  end
   def parseUser
-	comments_from_form = params[:username];
-	puts "Read User: #{comments_from_form}";
+	@user = User.new(params);
+	puts "Read User: #{@user}";
   end
 end
