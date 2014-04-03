@@ -11,7 +11,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: RPS_development
+  database: rps_development
   pool: 5
   username: appuser
   password: cite3901
