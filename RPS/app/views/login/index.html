@@ -67,9 +67,13 @@
   </div>
 	<div class="modal-body">
 		<div id="describe-panel" class="panel">
-			<%= form_for @user do |f| %>
-				Username: <%= f.text_field :user_name %><br />
-				<% f.submit %>
+			<%= form_for @user do |u| %>
+				Username: <%= u.text_field :user_name %><br />
+				Password: <%= u.password_field :password %><br />
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="register">Sign Up</button>
+  </div>
 			<% end %> 
             
 

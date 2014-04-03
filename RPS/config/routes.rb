@@ -1,7 +1,8 @@
 RPS::Application.routes.draw do
 
   match 'login/index', :via => :get
-  match 'login/parseUser', :via => :post
+  match ':controller(/:action(/:id))', :via => :get
+  #match 'login/parseUser', :via => :post
   resources :users
 
   #get "login/index"
@@ -14,7 +15,6 @@ RPS::Application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  get "login/parseUser"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
