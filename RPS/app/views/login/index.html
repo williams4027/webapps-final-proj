@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scissors Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">RPS</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
+              <li><a href="help.html">Help</a></li>
+            </ul>
+            <button class="btn pull-right" type="button" href="#login" data-toggle="modal">Login</button>
+            <button class="btn pull-right" type="button" href="#signup" data-toggle="modal" style="margin-right:2px">Sign up</button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Rock, Paper, Scissors Online</h1>
+      <p>Play Rock, Paper, Scissors against other users across the world!</p>
+      <br>
+
+    </div>
+
+<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Login</h3>
+  </div>
+	<div class="modal-body">
+		<div class="panel">
+            <form>
+			<p>
+            <div><input name="username" autocomplete="off" placeholder="Username" style="margin-bottom:2px"></div>
+            <div><input name="password" autocomplete="off" placeholder="Password"></div>
+			</p>
+            </form>
+		</div>
+	</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="signin">Sign In</button>
+  </div>
+</div>
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Sign up</h3>
+  </div>
+	<div class="modal-body">
+		<div id="describe-panel" class="panel">
+            <form>
+			<p>
+            <div><input name="username" autocomplete="off" placeholder="Username" style="margin-bottom:2px"></div>
+            <div><input name="password" autocomplete="off" placeholder="Password" style="margin-bottom:2px"></div>
+            <div><input name="password2" autocomplete="off" placeholder="Confirm Password"></div>
+			</p>
+            </form>
+		</div>
+	</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="register">Sign In</button>
+  </div>
+</div>
+
+
+    <div id="result"></div>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+  </body>
+</html>
