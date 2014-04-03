@@ -67,19 +67,27 @@
   </div>
 	<div class="modal-body">
 		<div id="describe-panel" class="panel">
-            <form>
+			<%= form_for user do |f| %>
+				Username: <%= f.text_field :username %><br />
+				<% f.submit %>
+			<% end %> 
+            
+
+
+<!-- form id="signinform">
 			<p>
             <div><input name="username" autocomplete="off" placeholder="Username" style="margin-bottom:2px"></div>
             <div><input name="password" autocomplete="off" placeholder="Password" style="margin-bottom:2px"></div>
             <div><input name="password2" autocomplete="off" placeholder="Confirm Password"></div>
 			</p>
-            </form>
+            </form> 
 		</div>
 	</div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary" type="submit" id="register">Sign In</button>
-  </div>
+    <%= button_to "Create User", @post, remote: true %>    
+    <button class="btn btn-primary" type="submit" id="register">Sign Up</button>
+  </div> -->
 </div>
     <div id="result"></div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
