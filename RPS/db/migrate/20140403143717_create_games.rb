@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration
     t.string "game_creator", :null => false, :limit => 25
     t.boolean "open"
     t.datetime "created_at"
-    t.timestamps
+    t.timestamps "game_over"
     end
   end
 

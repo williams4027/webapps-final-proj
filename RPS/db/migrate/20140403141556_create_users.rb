@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def up
-    create_table :users do |t|
+    create_table  :users, :id => false do |t|
     t.column "user_name", :string, :null => false, :limit => 25
     t.string "password", :null => false, :limit => 25
     t.integer "wins"
@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
     t.integer "ties"
     t.datetime "create_at"
     end
+    execute "ALTER TABLE users ADD PRIMARY KEY (user_name);"
   end
 
   def down
