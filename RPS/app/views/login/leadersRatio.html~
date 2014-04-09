@@ -27,55 +27,49 @@
           <a class="brand" href="home.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/login/index.html">Home</a></li>
-              <li><a href="/login/lobby.html">Lobby</a></li>
-              <li><a href="/login/leaders.html">Leaderboard</a></li>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
               <li><a href="help.html">Help</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="container">
 <br></br>
 <br></br>
-   <div class="container">
-   <div class="jumbotron">
-      <h1>Prepare for battle!</h1>
-      <p>Either create a game or battle immediately</p>
-         <tr>
-  	    <td>
-		<%= link_to('Create Game', {
-			:controller => 'game',
-			:action => 'submit'}) %>
-	    </td>
-  </td>
-	</div>
+<br></br>
+<br></br>
+<h2 class = h2>Leaderboard</h2>
+<div class="nav-collapse collapse">
+ 	<ul class="nav">
+  		<li><%= link_to("Most wins", {
+			:controller => "login",
+			:action => "leader"}) %></li>
+   		<li><%= link_to("Best win/lose ratio", {
+			:controller => "login",
+			:action => "leaderRatio"}) %></li>
+ 		<li><%= link_to("Least loses", {
+			:controller => "login",
+			:action => "leaderLL"}) %></li>
+   	</ul>
 </div>
-    
 <table class = table>
 	<tr>
-		<td></td>
-		<td style = font-weight:bold>Game id</td>
-		<td style = font-weight:bold>Creation</td>
+		<td style = font-weight:bold>User Name</td>
+		<td style = font-weight:bold>Win/Lose Ratio</td>
 	</tr>
-    	<%= @game.each do |u| %>
+    	<%= @user.each do |u| %>
 	<tr>
-		 <td>
-		 <%= link_to('Battle', {
-			:controller => 'game',
-			:action => 'submitBattle',
-			:id => u.id,
-			:open => true}) %>
-		
-		</td>
-		<td><%= u.id %></td>
-		<td><%= u.created_at %></td>
+		<td><%= u.user_name %></td>
+		<td><%= u.wins.to_f / u.loses.to_f %></td>
 	</tr>
 	<small hidden><% end %></small>
 </table>
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>
-
   </body>
 </html>

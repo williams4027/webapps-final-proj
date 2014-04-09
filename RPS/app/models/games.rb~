@@ -1,8 +1,10 @@
 class Games < ActiveRecord::Base
 
+belongs_to :user
+=begin
   def makeGame
      	game = games.new
-	game.move = //retrieve from html
+	game.move = //retrieve from submit.html
 	game.game_creator = //retrieve from current user.id
 	game.created_at = Time.now
 	game.save		
@@ -13,20 +15,20 @@ class Games < ActiveRecord::Base
   end
 
   def arena
-	battle = games.where(:id => //get from arena html?//)
-	gCreator = users.where(:id => //get from arena html)
+	battle = games.where(:id => //get from submit.html?//)
+	gCreator = users.where(:id => //get from submit.html)
         mov2 = //get from arena html//
 	gChallenger = users.where(:id => //currently logged in user)
 	if (mov2 == "rock")
 		if (battle.move == "paper")
 			//rock loses
-			gChallenger.loses = gChallenger.loses + 1
+			gChallenger.losses = gChallenger.losses + 1
 			gCreator.wins = gCreator.wins + 1
 	
 		elsif (battle.move == "scissors")
 			//rock wins
 			gChallenger.wins = gChallenger.wins + 1
-			gCreator.loses = gCreator.loses + 1
+			gCreator.losses = gCreator.losses + 1
 
 		else	
 			//tie game
@@ -37,11 +39,11 @@ class Games < ActiveRecord::Base
 		if (battle.move == "rock")
 			//paper wins
 			gChallenger.wins = gChallenger.wins + 1
-			gCreator.loses = gCreator.loses + 1
+			gCreator.losses = gCreator.losses + 1
 
 		elsif (battle.move == "scissors")
 			//paper loses
-			gChallenger.loses = gChallenger.loses + 1
+			gChallenger.losses = gChallenger.losses + 1
 			gCreator.wins = gCreator.wins + 1
 
 		else	
@@ -53,11 +55,11 @@ class Games < ActiveRecord::Base
 		if (battle.move == "paper")
 			//scissors wins
 			gChallenger.wins = gChallenger.wins + 1
-			gCreator.loses = gCreator.loses + 1
+			gCreator.losses = gCreator.losses + 1
 
 		elsif (battle.move == "rock")
 			//scissors loses
-			gChallenger.loses = gChallenger.loses + 1
+			gChallenger.losses = gChallenger.losses + 1
 			gCreator.wins = gCreator.wins + 1
 
 		else	
@@ -70,4 +72,6 @@ class Games < ActiveRecord::Base
 	battle.save
 	gChallenger.save
 	gCreator.save
+end
+=end
 end

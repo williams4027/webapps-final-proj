@@ -27,9 +27,9 @@
           <a class="brand" href="home.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/login/index.html">Home</a></li>
-              <li><a href="/login/lobby.html">Lobby</a></li>
-              <li><a href="/login/leaders.html">Leaderboard</a></li>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
               <li><a href="help.html">Help</a></li>
             </ul>
           </div>
@@ -43,11 +43,11 @@
       <h1>Prepare for battle!</h1>
       <p>Either create a game or battle immediately</p>
          <tr>
-  	    <td>
+  	    <td><a class="btn btn-primary btn-lg" role="button">
 		<%= link_to('Create Game', {
 			:controller => 'game',
 			:action => 'submit'}) %>
-	    </td>
+	    </a></td>
   </td>
 	</div>
 </div>
@@ -60,14 +60,14 @@
 	</tr>
     	<%= @game.each do |u| %>
 	<tr>
-		 <td>
+		 <td><a class="btn btn-primary btn-lg" role="button">
 		 <%= link_to('Battle', {
 			:controller => 'game',
 			:action => 'submitBattle',
 			:id => u.id,
 			:open => true}) %>
 		
-		</td>
+		</a></td>
 		<td><%= u.id %></td>
 		<td><%= u.created_at %></td>
 	</tr>

@@ -1,4 +1,5 @@
 class Games < ActiveRecord::Base
+
 =begin
   def makeGame
      	game = games.new

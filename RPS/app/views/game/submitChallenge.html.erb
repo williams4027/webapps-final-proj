@@ -36,46 +36,42 @@
         </div>
       </div>
     </div>
+
+    <div class="container">
 <br></br>
 <br></br>
-   <div class="container">
-   <div class="jumbotron">
-      <h1>Prepare for battle!</h1>
-      <p>Either create a game or battle immediately</p>
-         <tr>
-  	    <td>
-		<%= link_to('Create Game', {
+<br></br>
+<br></br>
+<div class="dropdown">
+  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Choose your weapon!
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" >
+	<%= link_to('Rock', {
 			:controller => 'game',
-			:action => 'submit'}) %>
-	    </td>
-  </td>
-	</div>
-</div>
-    
-<table class = table>
-	<tr>
-		<td></td>
-		<td style = font-weight:bold>Game id</td>
-		<td style = font-weight:bold>Creation</td>
-	</tr>
-    	<%= @game.each do |u| %>
-	<tr>
-		 <td>
-		 <%= link_to('Battle', {
-			:controller => 'game',
-			:action => 'submitBattle',
-			:id => u.id,
+			:action => 'rockC',
+			:id => params[:id],
 			:open => true}) %>
-		
-		</td>
-		<td><%= u.id %></td>
-		<td><%= u.created_at %></td>
-	</tr>
-	<small hidden><% end %></small>
-</table>
+    	</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1">
+	<%= link_to('Paper', {
+			:controller => 'game',
+			:action => 'paperC',
+			:id => params[:id],
+			:open => true}) %>
+        </a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="scissorsC">
+	<%= link_to('Scissors', {
+			:controller => 'game',
+			:action => 'scissorC',
+			:id => params[:id],
+			:open => true}) %>
+	</a></li>
+
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>
-
   </body>
 </html>
