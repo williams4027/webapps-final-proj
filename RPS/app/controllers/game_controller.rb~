@@ -1,7 +1,7 @@
 class GameController < ApplicationController
   def lobby
 	#send to lobby view
-	#@game = Games.where(:open => 1).group("created_at ASC")
+	@game = Games.where(:open => 1).group("created_at ASC")
   end
 
   def help

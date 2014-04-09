@@ -11,6 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403010500) do
+ActiveRecord::Schema.define(version: 20140403143717) do
+
+  create_table "games", force: true do |t|
+    t.string   "move",         limit: 8,  null: false
+    t.string   "game_creator", limit: 25, null: false
+    t.boolean  "open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", primary_key: "user_name", force: true do |t|
+    t.string   "password",  limit: 25, null: false
+    t.integer  "wins"
+    t.integer  "loses"
+    t.integer  "ties"
+    t.datetime "create_at"
+  end
 
 end

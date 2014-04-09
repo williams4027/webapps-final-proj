@@ -1,5 +1,5 @@
 class Games < ActiveRecord::Base
-
+=begin
   def makeGame
      	game = games.new
 	game.move = //retrieve from submit.html
@@ -70,4 +70,6 @@ class Games < ActiveRecord::Base
 	battle.save
 	gChallenger.save
 	gCreator.save
+end
+=end
 end

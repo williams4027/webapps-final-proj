@@ -1,2 +1,67 @@
-<h1>Game#lobby</h1>
-<p>Find me in app/views/game/lobby.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>To the arena!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="assets/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+  </head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="home.html">RPS</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
+              <li><a href="help.html">Help</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<br></br>
+<br></br>
+<div class="container">
+   <div class="jumbotron">
+      <h1>Prepare for battle!</h1>
+      <p>Either create a game or battle immediately</p>
+         <tr>
+  	    <td><a class="btn btn-primary btn-lg" role="button" href ="submit">Create game</a></td>
+  </td>
+	</div>
+</div>
+    
+<table class = table>
+	<tr>
+		<td style = font-weight:bold>Game id</td>
+		<td style = font-weight:bold>Time of Creation</td>
+	</tr>
+    	<%= @game.each do |u| %>
+	<tr>
+		<td><%= u.id %></td>
+		<td><%= u.created_at %></td>
+	</tr>
+	<small hidden><% end %></small>
+</table>
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
+    <script src="assets/bootstrap-min.js"></script>
+  </body>

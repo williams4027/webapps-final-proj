@@ -36,10 +36,32 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-
-    Lobby goes here.
+<br></br>
+<br></br>
+   <div class="container">
+   <div class="jumbotron">
+      <h1>Prepare for battle!</h1>
+      <p>Either create a game or battle immediately</p>
+         <tr>
+  	    <td><a class="btn btn-primary btn-lg" role="button" href ="submit">Create game</a></td>
+  </td>
+	</div>
+</div>
+    
+<table class = table>
+	<tr>
+		<td></td>
+		<td style = font-weight:bold>Game id</td>
+		<td style = font-weight:bold>Creation</td>
+	</tr>
+    	<%= @game.each do |u| %>
+	<tr>
+		 <td><a class="btn btn-primary btn-lg" role="button">Battle</a></td>
+		<td><%= u.id %></td>
+		<td><%= u.created_at %></td>
+	</tr>
+	<small hidden><% end %></small>
+</table>
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>
