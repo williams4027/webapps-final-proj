@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new(:user_name => "Old Gregg")
+    redirect_to('login/login')
+  end
+
+  def wait
   end
 
   def create
@@ -15,6 +18,12 @@ class UsersController < ApplicationController
 	else
 		render('new')
 	end
+  end
+
+  def login
+	@log_user = User.new(:user_name => "logged in", :password => "test")
+	@log_user.save	
+	redirect_to('/login/index')
   end
 
   private

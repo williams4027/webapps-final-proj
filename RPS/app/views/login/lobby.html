@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="assets/bootstrap.css" rel="stylesheet">
-
+    <style>
+	body{
+    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
+		background-color:#cccccc;
+	}
+    </style>
   </head>
 
   <body>
@@ -55,7 +60,7 @@
 		 <td>
 		 <%= link_to('Battle', {
 			:controller => 'game',
-			:action => 'submitBattle',
+			:action => 'submitChallenge',
 			:id => u.id,
 			:open => true}) %>
 		

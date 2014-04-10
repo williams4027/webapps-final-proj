@@ -52,21 +52,21 @@
 	<%= link_to('Rock', {
 			:controller => 'game',
 			:action => 'rockC',
-			:id => u.id,
+			:id => params[:id],
 			:open => true}) %>
     	</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1">
 	<%= link_to('Paper', {
 			:controller => 'game',
 			:action => 'paperC',
-			:id => u.id,
+			:id => params[:id],
 			:open => true}) %>
         </a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="scissorsC">
 	<%= link_to('Scissors', {
 			:controller => 'game',
 			:action => 'scissorC',
-			:id => u.id,
+			:id => params[:id],
 			:open => true}) %>
 	</a></li>
 
