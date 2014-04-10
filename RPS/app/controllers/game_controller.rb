@@ -5,6 +5,7 @@ class GameController < ApplicationController
   end
 
   def help
+	render('login/help')
 	#send to help view
   end
 

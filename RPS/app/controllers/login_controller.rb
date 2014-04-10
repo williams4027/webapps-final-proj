@@ -1,25 +1,47 @@
 class LoginController < ApplicationController
-  def index
-    @user = User.new
-    @login_user = User.new
+  def new
+  	@user = User.new
+#	@login_user = User.new
   end
 
   def create
-    	# 1. instantiate a new object using form parameters
-	@user = User.new(:user_name => params[:id], :password => params[:password])
+	# 1. instantiate a new object using form parameters
+	@user = User.new(user_params)
 	@user.wins = 0;
 	@user.loses = 0;
 	@user.ties = 0;
 	@user.create_at = Time.now;
 	if @user.save
-		redirect_to('/login/index')	
+		redirect_to('/login/index')
 	else
 		render('new')
 	end
   end
 
-  def signup
+  def sign_in
 	@user = User.new
+  end
+
+  def login
+    username = params[:user][:username]
+    password = params[:user][:password]
+
+    user = User.authenticate_by_username(username, password)
+
+    if user
+      flash[:notice] = 'Welcome.'
+      redirect_to :root
+    else
+      flash.now[:error] = 'Unknown user. Please check your username and password.'
+      render :action => "sign_in"
+    end
+
+  end
+
+  def signed_out
+  end
+
+  def new_user
   end
 
   def lobby

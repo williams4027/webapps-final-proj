@@ -40,10 +40,10 @@
     <div class="container">
 
 	<p>Sign In</p>
-	<%= form_for @user, :as => :user, :url => sign_in_path(@user) do |f| %>
+	<%= form_for User.new, :as => :user, :url => sign_in_path(@user) do |f| %>
   	  <p>
-    	    <%= f.label 'username or email:' %><br />
-    	    <%= f.text_field :username %>
+    	    <%= f.label 'user_name:' %><br />
+    	    <%= f.text_field :user_name %>
   	  </p>
           <p>
             <%= f.label 'password:' %><br />
