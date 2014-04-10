@@ -24,7 +24,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="home.html">RPS</a>
+          <a class="brand" href="index.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="/login/index.html">Home</a></li>
@@ -42,15 +42,14 @@
    <div class="jumbotron">
       <h1>Prepare for battle!</h1>
       <p>Either create a game or battle immediately</p>
-         <tr>
+       <tr>
   	    <td>
-		<%= link_to('Create Game', {
+		  <%= link_to('Create Game', {
 			:controller => 'game',
 			:action => 'submit'}) %>
 	    </td>
-  </td>
-	</div>
-</div>
+      </tr>
+	 </div>
     
 <table class = table>
 	<tr>
@@ -73,7 +72,42 @@
 	</tr>
 	<small hidden><% end %></small>
 </table>
+</div>
+<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Login</h3>
+  </div>
+  <div class="modal-body">
+    <div class="panel">
+            <form>
+      <p>
+            <div><input name="username" autocomplete="off" placeholder="Username" style="margin-bottom:2px"></div>
+            <div><input name="password" autocomplete="off" placeholder="Password"></div>
+      </p>
+            </form>
     </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="signin">Sign In</button>
+  </div>
+</div>
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Sign up</h3>
+  </div>
+  <div class="modal-body">
+    <div id="describe-panel" class="panel">
+      <%= form_for @user_signin do |u| %>
+        Username: <%= u.text_field :user_name %><br />
+        Password: <%= u.password_field :password %><br />
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="register">Sign Up</button>
+  </div>
+      <% end %> 
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>
 

@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
   def index
     @user = User.new
+    @login_user = User.new
   end
 
   def create
@@ -8,10 +9,12 @@ class LoginController < ApplicationController
   end
 
   def lobby
+  @user_signin = User.new
 	@game = Games.where(:open => true).group("created_at ASC")
   end
 
   def leaders
+  @user_signin = User.new
 	@user = User.all.group("wins DESC")
   end
 
