@@ -1,4 +1,13 @@
 RPS::Application.routes.draw do
+  root :to=>"login#index"
+
+  get "sign_in" => "login#sign_in"
+  get "signed_out" => "login#signed_out"
+  get "new_user" => "login#sign_up"
+
+  post "sign_in" => "login#login"
+  put "new_user" => "login#login"
+  post "new_user" => "login#sign_up"
 
   match 'login/index', :via => :get
   match ':controller(/:action(/:id))', :via => :get

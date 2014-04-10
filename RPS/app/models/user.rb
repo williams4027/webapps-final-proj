@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :on => :create
   validates_uniqueness_of :username
 
+
   def self.authenticate_by_username(username, password)
     user = find_by_user_name(username)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)

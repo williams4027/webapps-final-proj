@@ -45,6 +45,20 @@ class LoginController < ApplicationController
   end
 
   def new_user
+	@user = User.new
+  end
+
+  def sign_up
+	@user = User.new(params[:user])
+
+	if @user.valid?
+    		@user.save
+    		session[:user_id] = @user.id
+    		flash[:notice] = 'Welcome.'
+    		redirect_to :root
+  	else
+    		render :action => "new_user"
+  	end
   end
 
   def lobby
