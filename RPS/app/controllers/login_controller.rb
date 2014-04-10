@@ -29,6 +29,7 @@ class LoginController < ApplicationController
     user = User.authenticate_by_username(username, password)
 
     if user
+      session[:user_id] = user.id
       flash[:notice] = 'Welcome.'
       redirect_to :root
     else
@@ -39,6 +40,8 @@ class LoginController < ApplicationController
   end
 
   def signed_out
+	session[:user_id] = nil
+	flash[:notice] = "You have been signed out."
   end
 
   def new_user
