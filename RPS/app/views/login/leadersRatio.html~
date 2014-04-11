@@ -7,16 +7,16 @@
 
     <link href="assets/bootstrap.css" rel="stylesheet">
     <style>
-	body{
-    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
-		background-color:#cccccc;
-	}
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
     </style>
+
   </head>
 
   <body>
 
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -38,12 +38,22 @@
     </div>
 
     <div class="container">
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 <h2 class = h2>Leaderboard</h2>
 <div class="nav-collapse collapse">
  	<ul class="nav">
-  	      <li><a href="leaders.html">Most Wins</a></li>
-              <li><a href="leadersLL.html">Least Loses</a></li>
-              <li><a href="leadersRatio.html">Best Win/Lose Ratio</a></li>
+  		<li><%= link_to("Most wins", {
+			:controller => "login",
+			:action => "leader"}) %></li>
+   		<li><%= link_to("Best win/lose ratio", {
+			:controller => "login",
+			:action => "leaderRatio"}) %></li>
+ 		<li><%= link_to("Least loses", {
+			:controller => "login",
+			:action => "leaderLL"}) %></li>
    	</ul>
 </div>
 <table class = table>
@@ -54,7 +64,7 @@
     	<%= @user.each do |u| %>
 	<tr>
 		<td><%= u.user_name %></td>
-		<td><%= u.wins.to_f / (u.loses.to_f.nonzero? || 1) %></td>
+		<td><%= u.wins.to_f / u.loses.to_f %></td>
 	</tr>
 	<small hidden><% end %></small>
 </table>

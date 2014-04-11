@@ -5,21 +5,7 @@ class LoginController < ApplicationController
   end
 
   def create
-    	# 1. instantiate a new object using form parameters
-	@user = User.new(:user_name => params[:id], :password => params[:password])
-	@user.wins = 0;
-	@user.loses = 0;
-	@user.ties = 0;
-	@user.create_at = Time.now;
-	if @user.save
-		redirect_to('/login/index')	
-	else
-		render('new')
-	end
-  end
-
-  def signup
-	@user = User.new
+    
   end
 
   def lobby

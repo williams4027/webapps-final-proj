@@ -4,14 +4,7 @@
     <meta charset="utf-8">
     <title>Rock, Paper, Scissors Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-	body{
-    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
-		background-color:#cccccc;
-	}
 
-
-    </style>
   </head>
 
   <body>
@@ -31,10 +24,9 @@
               <li><a href="lobby.html">Lobby</a></li>
               <li><a href="leaders.html">Leaderboard</a></li>
               <li><a href="help.html">Help</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="signup.html">Signup</a></li>	      
             </ul>
-        
+            <button class="btn pull-right" type="button" href="#login" data-toggle="modal">Login</button>
+            <button class="btn pull-right" type="button" href="#signup" data-toggle="modal" style="margin-right:2px">Sign up</button>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -48,7 +40,63 @@
 
     </div>
 
+<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Login</h3>
+  </div>
+	<div class="modal-body">
+		<div class="panel">
+            <%= form_for @login_user do |u| %>
+        Username: <%= u.text_field :user_name %><br />
+        Password: <%= u.password_field :password %><br />
+		</div>
+	</div>
+  <div class="modal-footer">
+  
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>          
+                    <%= button_to 'Login', {
+                    :controller => 'users',
+                    :action => 'login'}, :class => 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h3>Sign up</h3>
+  </div>
+	<div class="modal-body">
+		<div id="describe-panel" class="panel">
+            <%= form_for @user do |u| %>
+        Username: <%= u.text_field :user_name %><br />
+        Password: <%= u.password_field :password %><br />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" type="submit" id="register">Sign Up</button>
+  </div>
+			<% end %> 
+            
 
+
+<!-- form id="signinform">
+			<p>
+            <div><input name="username" autocomplete="off" placeholder="Username" style="margin-bottom:2px"></div>
+            <div><input name="password" autocomplete="off" placeholder="Password" style="margin-bottom:2px"></div>
+            <div><input name="password2" autocomplete="off" placeholder="Confirm Password"></div>
+			</p>
+            </form> 
+		</div>
+	</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= button_to "Create User", @post, remote: true %>    
+    <button class="btn btn-primary" type="submit" id="register">Sign Up</button>
+  </div> -->
+</div>
+    <div id="result"></div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
   </body>
 </html>
