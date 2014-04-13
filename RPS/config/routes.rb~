@@ -1,5 +1,6 @@
 RPS::Application.routes.draw do
   root :to=>"login#index"
+  lobby :to=>"login#lobby"
 
   get "sign_in" => "login#sign_in"
   get "signed_out" => "login#signed_out"

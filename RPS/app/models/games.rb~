@@ -1,6 +1,5 @@
 class Games < ActiveRecord::Base
 
-belongs_to :user
 =begin
   def makeGame
      	game = games.new

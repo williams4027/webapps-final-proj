@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="assets/bootstrap.css" rel="stylesheet">
-
+    <style>
+	body{
+    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
+		background-color:#cccccc;
+	}
+    </style>
   </head>
 
   <body>
@@ -19,15 +24,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="home.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="home.html">Home</a></li>
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="leaders.html">Leaderboard</a></li>
-              <li><a href="help.html">Help</a></li>
+              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
+              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
+              <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
+              <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
+	      
             </ul>
-          </div>
+            
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -36,9 +42,12 @@
 <h2 class = h2>Leaderboard</h2>
 <div class="nav-collapse collapse">
  	<ul class="nav">
-  	      <li><a href="leaders.html">Most Wins</a></li>
-              <li><a href="leadersLL.html">Least Loses</a></li>
-              <li><a href="leadersRatio.html">Best Win/Lose Ratio</a></li>
+          <li><%= link_to('Most Wins', {:controller => 'login', :action => 'leaders'}) %></li>
+          <!-- <button type="button"><a href="leaders.html">Most Wins</a></button> -->
+	  <li><%= link_to('Least Loses', {:controller => 'login', :action => 'leadersLL'}) %></li>	  
+          <!-- <button type="button"><a href="leadersLL.html">Least Loses</a></button> -->
+	  	  <li><%= link_to('Best Win/Lose Ratio', {:controller => 'login', :action => 'leadersRatio'}) %></li>
+          <!--<button type="button"><a href="leadersRatio.html">Best Win/Lose Ratio</a></button> -->
    	</ul>
 </div>
 <table class = table>
@@ -48,8 +57,8 @@
 	</tr>
     	<%= @user.each do |u| %>
 	<tr>
-		<td><%= u.user_name %></td>
-		<td><%= u.wins.to_f / u.loses.to_f %></td>
+		<td><%= u.username %></td>
+		<td><%= u.wins.to_f / (u.loses.to_f.nonzero? || 1) %></td>
 	</tr>
 	<small hidden><% end %></small>
 </table>

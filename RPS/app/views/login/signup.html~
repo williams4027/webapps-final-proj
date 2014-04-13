@@ -24,15 +24,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a class="brand" href="#">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
-              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
-              <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
-              <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
-	      
+              <li><a href="#">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
+              <li><a href="help.html">Help</a></li>
             </ul>
-        
+            <button class="btn pull-right" type="button" href="#login" data-toggle="modal">Login</button>
+            <button class="btn pull-right" type="button" href="#signup" data-toggle="modal" style="margin-right:2px">Sign up</button>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -46,7 +47,31 @@
 
     </div>
 
+<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
 
+</div>
+  <div class="modal-header">
+    
+    <h3>Sign up</h3>
+  </div>
+	<div class="modal-body">
+		<div id="describe-panel" class="panel">
+            <%= form_for @user do |u| %>
+        Username: <%= u.text_field :user_name %><br />
+        Password: <%= u.password_field :password %><br />
+    </div>
+  </div>
+    <%= link_to('Signup', {
+			:controller => 'login',
+			:action => 'create',
+			:id => 'u.text_field' ,
+			:password => u.password_field}) %>
+  </div>
+	<% end %> 
+            
+
+</div>
+    <div id="result"></div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
   </body>
 </html>

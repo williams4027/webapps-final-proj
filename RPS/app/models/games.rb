@@ -1,5 +1,6 @@
 class Games < ActiveRecord::Base
 
+attr_accessible :game_creator, :move, :open
 =begin
   def makeGame
      	game = games.new

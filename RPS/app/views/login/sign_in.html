@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>Rock, Paper, Scissors Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="assets/bootstrap.css" rel="stylesheet">
     <style>
 	body{
     		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
 		background-color:#cccccc;
 	}
+
     </style>
   </head>
 
@@ -39,31 +38,31 @@
     </div>
 
     <div class="container">
-<h2 class = h2>Leaderboard</h2>
-<div class="nav-collapse collapse">
- 	<ul class="nav">
-          <li><%= link_to('Most Wins', {:controller => 'login', :action => 'leaders'}) %></li>
-          <!-- <button type="button"><a href="leaders.html">Most Wins</a></button> -->
-	  <li><%= link_to('Least Loses', {:controller => 'login', :action => 'leadersLL'}) %></li>	  
-          <!-- <button type="button"><a href="leadersLL.html">Least Loses</a></button> -->
-	  	  <li><%= link_to('Best Win/Lose Ratio', {:controller => 'login', :action => 'leadersRatio'}) %></li>
-          <!--<button type="button"><a href="leadersRatio.html">Best Win/Lose Ratio</a></button> -->
-   	</ul>
-</div>
-<table class = table>
-	<tr>
-		<td style = font-weight:bold>User Name</td>
-		<td style = font-weight:bold>Loses</td>
-	</tr>
-    	<%= @user.each do |u| %>
-	<tr>
-		<td><%= u.username %></td>
-		<td><%= u.loses %></td>
-	</tr>
-	<small hidden><% end %></small>
-</table>
+
+	<p>Sign In</p>
+	<%= form_for User.new, :as => :user, :url => {:controller => "login", :action => "login"}, :method => :post do |f| %>
+  	  <p>
+    	    <%= f.label 'username:' %><br />
+    	    <%= f.text_field :username %>
+  	  </p>
+          <p>
+            <%= f.label 'password:' %><br />
+            <%= f.password_field :password %>
+          </p>
+          <p>
+            <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+            <%= f.submit 'Clear Form', :type => 'reset' %>
+          </p>
+        <% end %>	
+     	
     </div>
+
+
+        
+
+
+            
+
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
-    <script src="assets/bootstrap-min.js"></script>
   </body>
 </html>
