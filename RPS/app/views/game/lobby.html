@@ -2,20 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>To the arena!</title>
+    <title>Rock, Paper, Scissors Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="assets/bootstrap.css" rel="stylesheet">
     <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+	body{
+    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
+		background-color:#cccccc;
+	}
     </style>
-
   </head>
-<body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+  <body>
+
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -26,7 +27,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
-              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
+              <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
 	      
@@ -36,33 +37,42 @@
         </div>
       </div>
     </div>
-
-    
-<br></br>
-<br></br>
-<div class="container">
+   <div class="container">
    <div class="jumbotron">
       <h1>Prepare for battle!</h1>
       <p>Either create a game or battle immediately</p>
-         <tr>
-  	    <td><a class="btn btn-primary btn-lg" role="button" href ="submit">Create game</a></td>
-  </td>
-	</div>
-</div>
+       <tr>
+  	    <td>
+		  <%= link_to('Create Game', {
+			:controller => 'game',
+			:action => 'submit'}) %>
+	    </td>
+      </tr>
+	 </div>
     
 <table class = table>
 	<tr>
+		<td></td>
 		<td style = font-weight:bold>Game id</td>
-		<td style = font-weight:bold>Time of Creation</td>
+		<td style = font-weight:bold>Creation</td>
 	</tr>
     	<%= @game.each do |u| %>
 	<tr>
+		 <td>
+		 <%= link_to('Battle', {
+			:controller => 'game',
+			:action => 'submitChallenge',
+			:id => u.id,
+			:open => true}) %>
+		
+		</td>
 		<td><%= u.id %></td>
 		<td><%= u.created_at %></td>
 	</tr>
 	<small hidden><% end %></small>
 </table>
-
+</div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>
   </body>
+</html>

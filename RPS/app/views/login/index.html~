@@ -24,10 +24,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-	  <a class="brand"><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><%= link_to('Home', {:controller => 'login', :action => 'index'}) %></li>
+              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
               <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>

@@ -4,20 +4,6 @@ class LoginController < ApplicationController
 #	@login_user = User.new
   end
 
-  def create
-	# 1. instantiate a new object using form parameters
-	@user = User.new(:username => params[:username], :password => params[:password])
-	@user.wins = 0;
-	@user.loses = 0;
-	@user.ties = 0;
-	@user.create_at = Time.now;
-	if @user.save
-		redirect_to ":root/login/index"
-	else
-		render('new')
-	end
-  end
-
   def sign_in
 	@user = User.new
   end
@@ -75,19 +61,15 @@ class LoginController < ApplicationController
   def leaders
   @user_signin = User.new
 	@user = User.all
-	@user = User.group("wins DESC")
+	@user = User.order("wins DESC")
   end
 
   def leadersRatio
-	@user = User.all#.group("wins / loses DESC")
+	@user = User.all.order("wins / loses DESC")
   end
 
   def leadersLL
-	@user = User.all#.group("loses ASC")
+	@user = User.all.order("loses ASC")
   end
 
-  def parseUser
-	@user = User.new(params);
-	puts "Read User: #{@user}";
-  end
 end
