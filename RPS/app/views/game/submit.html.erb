@@ -41,20 +41,32 @@
     </div>
 
     <div class="container">
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<div class="dropdown">
-  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    Choose your weapon!
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="rock">Rock</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="paper">Paper</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="scissors">Scissors</a></li>
-
+    <div class="container">
+	<div align="center">
+		<h2>Choose Your Weapon!</h2>
+		<table >
+		<tr>
+		<td><%= link_to(image_tag("rock.gif"), {
+			:controller => 'game',
+			:action => 'rock',
+			:id => params[:id],
+			:open => true}) %></td>
+		<td><%= link_to(image_tag("paper.gif"), {
+			:controller => 'game',
+			:action => 'paper',
+			:id => params[:id],
+			:open => true}) %></td>
+		<td><%= link_to(image_tag("scissors.gif"), {
+			:controller => 'game',
+			:action => 'scissors',
+			:id => params[:id],
+			:open => true}) %></td>
+		</tr>
+		<tr text-align="center">
+		<td><h3 align="center">Rock</h2></td>
+		<td><h3 align="center">Paper</h3></td>
+		<td><h3 align="center">Scissors</h3></td>
+		</tr>
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>

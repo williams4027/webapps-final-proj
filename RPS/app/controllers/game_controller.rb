@@ -119,14 +119,14 @@ class GameController < ApplicationController
 		@user.wins = @user.wins + 1
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"	
+	elsif (@g.move = "paper")
+		@user.loses = @user.loses + 1
+		@chall.wins = @chall.wins + 1
+		flash[:notice] = "You won!" 
        	elsif (@g.move = "scissors")
 		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
-		flash[:notice] = "Tie game"    		
-       	else
-		@user.loses = @user.loses + 1
-		@chall.wins = @chall.wins + 1
-		flash[:notice] = "You won!"    		
+		flash[:notice] = "Tie game"    		   		
        	end
 	@user.save
 	@chall.save

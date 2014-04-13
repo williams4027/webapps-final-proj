@@ -32,47 +32,37 @@
               <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
-	      
             </ul>
-            
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
-
     <div class="container">
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<div class="dropdown">
-  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    Choose your weapon!
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" >
-	<%= link_to('Rock', {
+	<div align="center">
+		<h2>Choose Your Weapon!</h2>
+		<table >
+		<tr>
+		<td><%= link_to(image_tag("rock.gif"), {
 			:controller => 'game',
 			:action => 'rockC',
 			:id => params[:id],
-			:open => true}) %>
-    	</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1">
-	<%= link_to('Paper', {
+			:open => true}) %></td>
+		<td><%= link_to(image_tag("paper.gif"), {
 			:controller => 'game',
 			:action => 'paperC',
 			:id => params[:id],
-			:open => true}) %>
-        </a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="scissorsC">
-	<%= link_to('Scissors', {
+			:open => true}) %></td>
+		<td><%= link_to(image_tag("scissors.gif"), {
 			:controller => 'game',
 			:action => 'scissorC',
 			:id => params[:id],
-			:open => true}) %>
-	</a></li>
-
+			:open => true}) %></td>
+		</tr>
+		<tr text-align="center">
+		<td><h3 align="center">Rock</h2></td>
+		<td><h3 align="center">Paper</h3></td>
+		<td><h3 align="center">Scissors</h3></td>
+		</tr>
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>

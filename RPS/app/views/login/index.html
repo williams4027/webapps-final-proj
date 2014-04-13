@@ -9,8 +9,6 @@
     		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
 		background-color:#cccccc;
 	}
-
-
     </style>
   </head>
 
@@ -30,23 +28,18 @@
               <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
-	      
             </ul>
-        
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-
+    <div class="container" align="center">
       <h1>Rock, Paper, Scissors Online</h1>
       <p>Play Rock, Paper, Scissors against other users across the world!</p>
       <br>
-
+      <%= image_tag("awkward-rps-trans.gif") %>
     </div>
-
-
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
   </body>
 </html>
