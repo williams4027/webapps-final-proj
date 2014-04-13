@@ -27,7 +27,7 @@ class GameController < ApplicationController
   	@game = Games.new(:game_creator => session[:user_id], :move => "rock" , :open =>true)
 	if @game.save
 		flash[:notice] = "Game successfully created"    
-		redirect_to('/login/index')	
+		redirect_to('/game/lobby')	
 	end
   end
 
@@ -35,7 +35,7 @@ class GameController < ApplicationController
   	@game = Games.new(:game_creator => session[:user_id], :move =>"paper", :open =>"true")
 	if @game.save
 		flash[:notice] = "Game successfully created" 
-		redirect_to('/login/index')	
+		redirect_to('/game/lobby')	
 	end
   end
 
@@ -43,7 +43,7 @@ class GameController < ApplicationController
   	@game = Games.new(:game_creator => session[:user_id], :move =>"scissors", :open =>"true")
 	if @game.save
 		flash[:notice] = "Game successfully created"
-		redirect_to('/login/index')	
+		redirect_to('/game/lobby')	
 	end
   end
 
@@ -51,14 +51,14 @@ class GameController < ApplicationController
 	@g = Games.find_by_id(params[:id])
 	if (@g.open == false)
 		flash[:notice] = "This game does not exist"
-		render('login/index')
+		render('/game/lobby')
 		return
 	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
 		flash[:notice] = "You can not play a game you created"
-		redirect_to('/login/index.html') # {:controller => "login", :action => "index"}
+		redirect_to('/game/lobby')
 		return true;
 	end
        	if(@g.move == "rock")
@@ -78,7 +78,7 @@ class GameController < ApplicationController
 	@chall.save
 	@g.open = false
 	@g.save
-	redirect_to('/login/index')
+	redirect_to('/game/lobby')
   end
 
 	
@@ -86,14 +86,14 @@ class GameController < ApplicationController
 	@g = Games.find_by_id(params[:id])
 	if (@g.open == false)
 		flash[:notice] = "This game does not exist"
-		render('login/index')
+		render('/game/lobby')
 		return
 	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
 		flash[:notice] = "You can not play a game you created"
-		redirect_to('/login/index.html')
+		redirect_to('/game/lobby')
 		return true;
 	end
        	if(@g.move == "rock")
@@ -114,21 +114,21 @@ class GameController < ApplicationController
 	@g.open = false
 	@g.save
 
-	redirect_to('/login/index')
+	redirect_to('/game/lobby')
   end
 
   def scissorC
 	@g = Games.find_by_id(params[:id])
 	if (@g.open == false)
 		flash[:notice] = "This game does not exist"
-		render('login/index')
+		render('/game/lobby')
 		return
 	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find(@g.game_creator)
 	if(@chall.id == @user.id)
 		flash[:notice] = "You can not play a game you created"
-		redirect_to('/login/index.html')
+		redirect_to('/game/lobby')
 		return true;
 	end
        	if(@g.move == "rock")
@@ -148,14 +148,14 @@ class GameController < ApplicationController
 	@chall.save
 	@g.open = false
 	@g.save
-	redirect_to('/login/index')
+	redirect_to('/game/lobby')
   end
 
   def submitChallenge
 	@game = Games.find_by_id(params[:id])
 	if (@game.open == false)
 		flash[:notice] = "This game does not exist"
-		render('login/index')
+		render('/game/lobby')
 		return
 	end
 	if session[:user_id] != nil
