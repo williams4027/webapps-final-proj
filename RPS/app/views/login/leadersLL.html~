@@ -27,7 +27,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
-              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
+ 	      <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
 	      
@@ -42,9 +42,9 @@
 <h2 class = h2>Leaderboard</h2>
 <div class="nav-collapse collapse">
  	<ul class="nav">
-          <button type="button" href="leaders.html">Most Wins</button>
-          <button type="button" href="leadersLL.html">Least Loses</button>
-          <button type="button" href="leadersRatio.html">Best Win/Lose Ratio</button>
+          <li><%= link_to('Most Wins', {:controller => 'login', :action => 'leaders'}) %></li>
+	  <li><%= link_to('Least Loses', {:controller => 'login', :action => 'leadersLL'}) %></li>	  
+	  	  <li><%= link_to('Best Win/Lose Ratio', {:controller => 'login', :action => 'leadersRatio'}) %></li>
    	</ul>
 </div>
 <table class = table>

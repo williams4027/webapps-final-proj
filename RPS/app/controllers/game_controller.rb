@@ -49,6 +49,11 @@ class GameController < ApplicationController
 
   def rockC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -56,11 +61,11 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html') # {:controller => "login", :action => "index"}
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game" 
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.loses = @user.loses + 1
 		@chall.wins = @chall.wins + 1
 		flash[:notice] = "You won!" 	
@@ -79,6 +84,11 @@ class GameController < ApplicationController
 	
   def paperC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -86,28 +96,34 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html')
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.loses = @user.loses + 1
 		@chall.wins = @chall.wins + 1
 		flash[:notice] = "You won!"    				
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.wins = @user.wins + 1
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"    				
        	else
-		@user.ties = @user.ties +1
+		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game"    		
        	end
 	@user.save
 	@chall.save
 	@g.open = false
-        @g.save
+	@g.save
+
 	redirect_to('/login/index')
   end
 
   def scissorC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -115,15 +131,15 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html')
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.wins = @user.wins + 1
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"	
-	elsif (@g.move = "paper")
+	elsif (@g.move == "paper")
 		@user.loses = @user.loses + 1
 		@chall.wins = @chall.wins + 1
 		flash[:notice] = "You won!" 
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game"    		   		
@@ -136,6 +152,12 @@ class GameController < ApplicationController
   end
 
   def submitChallenge
+	@game = Games.find_by_id(params[:id])
+	if (@game.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	if session[:user_id] != nil
 		render('game/submitChallenge')		
 		return true;

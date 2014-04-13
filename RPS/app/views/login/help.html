@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <title>Rock, Paper, Scissors Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body{
+    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
+		background-color:#cccccc;
+	}
 
-    <link href="assets/bootstrap.css" rel="stylesheet">
 
+    </style>
   </head>
 
   <body>
@@ -19,13 +24,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="index.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="leaders.html">Leaderboard</a></li>
-              <li><a href="help.html">Help</a></li>
+              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
+              <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
+              <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
+              <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
+	      
             </ul>
           </div>
         </div>
@@ -39,7 +44,7 @@
         <p>To play:
         <ul>
         <li>Create an account.</li>
-        <li>Either start a new game or choose from the available games in the <a href="lobby.html">Lobby</a>.</li>
+        <li>Either start a new game or choose from the available games in the <%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %>.</li>
         <li>Choose your move (Rock, Paper, or Scissors).</li>
         <li>See how you did!</li>
         </ul>
@@ -47,7 +52,7 @@
       <p>
           Remember: Rock beats Scissors, Scissors beats Paper, and Paper beats Rock.
           <br>
-          You can also view how you rank up against other users as well as player statistics at the <a href="leaders.html">Leaderboards</a>!
+          You can also view how you rank up against other users as well as player statistics at the <%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %>!
       </p>
 
     </div>

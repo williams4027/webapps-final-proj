@@ -27,7 +27,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
-              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
+              <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
               <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
               <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
 	      
@@ -40,17 +40,16 @@
 
     <div class="container">
 <h2 class = h2>Leaderboard</h2>
-<div class="nav-collapse collapse">
- 	<ul class="nav">
-          <li><%= link_to('Most Wins', {:controller => 'login', :action => 'leaders'}) %></li>
+  <table class = "table">
+  	<tr>
+	  <td><%= link_to('Most Wins', {:controller => 'login', :action => 'leaders'}) %></td>
           <!-- <button type="button"><a href="leaders.html">Most Wins</a></button> -->
-	  <li><%= link_to('Least Loses', {:controller => 'login', :action => 'leadersLL'}) %></li>	  
-          <!-- <button type="button"><a href="leadersLL.html">Least Loses</a></button> -->
-	  	  <li><%= link_to('Best Win/Lose Ratio', {:controller => 'login', :action => 'leadersRatio'}) %></li>
-          <!--<button type="button"><a href="leadersRatio.html">Best Win/Lose Ratio</a></button> -->
-   	</ul>
-</div>
-<table class = table>
+	  <td><%= link_to('Least Loses', {:controller => 'login', :action => 'leadersLL'}) %></td>	  
+	  	  <td><%= link_to('Best Win/Lose Ratio', {:controller => 'login', :action => 'leadersRatio'}) %></td>
+   	</tr>
+<tr>
+  <table class = table>
+	 <tr>
 	<tr>
 		<td style = font-weight:bold>User Name</td>
 		<td style = font-weight:bold>Win/Lose Ratio</td>
@@ -62,6 +61,7 @@
 	</tr>
 	<small hidden><% end %></small>
 </table>
+</tr>
     </div>
     <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
     <script src="assets/bootstrap-min.js"></script>

@@ -52,12 +52,14 @@
     
 <table class = table>
 	<tr>
-		<td></td>
+		<td></td>	
 		<td style = font-weight:bold>Game id</td>
 		<td style = font-weight:bold>Creation</td>
+			
+		
 	</tr>
     	<%= @game.each do |u| %>
-	<tr>
+	<tr> 
 		 <td>
 		 <%= link_to('Battle', {
 			:controller => 'game',
