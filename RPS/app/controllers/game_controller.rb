@@ -49,6 +49,11 @@ class GameController < ApplicationController
 
   def rockC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -79,6 +84,11 @@ class GameController < ApplicationController
 	
   def paperC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find_by_id(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -95,19 +105,25 @@ class GameController < ApplicationController
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"    				
        	else
-		@user.ties = @user.ties +1
+		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game"    		
        	end
 	@user.save
 	@chall.save
 	@g.open = false
-        @g.save
+	@g.save
+
 	redirect_to('/login/index')
   end
 
   def scissorC
 	@g = Games.find_by_id(params[:id])
+	if (@g.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	@chall = User.find_by_id(session[:user_id])
 	@user = User.find(@g.game_creator)
 	if(@chall.id == @user.id)
@@ -136,6 +152,12 @@ class GameController < ApplicationController
   end
 
   def submitChallenge
+	@game = Games.find_by_id(params[:id])
+	if (@game.open == false)
+		flash[:notice] = "This game does not exist"
+		render('login/index')
+		return
+	end
 	if session[:user_id] != nil
 		render('game/submitChallenge')		
 		return true;
