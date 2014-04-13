@@ -4,14 +4,9 @@
     <meta charset="utf-8">
     <title>Rock, Paper, Scissors Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-	body{
-    		background-image:url(<%=asset_path "to_the_arena.jpg" %>);
-		background-color:#cccccc;
-	}
 
+    <link href="assets/bootstrap.css" rel="stylesheet">
 
-    </style>
   </head>
 
   <body>
@@ -24,13 +19,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a class="brand" href="index.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
-              <li><%= link_to('Lobby', {:controller => 'game', :action => 'lobby'}) %></li>
-              <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
-              <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
-	      
+              <li><a href="index.html">Home</a></li>
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="leaders.html">Leaderboard</a></li>
+              <li><a href="help.html">Help</a></li>
             </ul>
           </div>
         </div>

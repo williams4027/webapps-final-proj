@@ -26,15 +26,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="home.html">RPS</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/login/index.html">Home</a></li>
-              <li><a href="/login/lobby.html">Lobby</a></li>
-              <li><a href="/login/leaders.html">Leaderboard</a></li>
-              <li><a href="help.html">Help</a></li>
+              <li><%= link_to('RPS', {:controller => 'login', :action => 'index'}) %></li>
+              <li><%= link_to('Lobby', {:controller => 'login', :action => 'lobby'}) %></li>
+              <li><%= link_to('Leaderboard', {:controller => 'login', :action => 'leaders'}) %></li>
+              <li><%= link_to('Help', {:controller => 'login', :action => 'help'}) %></li>
+	      
             </ul>
-          </div>
+            
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>

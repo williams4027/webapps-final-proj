@@ -56,11 +56,11 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html') # {:controller => "login", :action => "index"}
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game" 
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.loses = @user.loses + 1
 		@chall.wins = @chall.wins + 1
 		flash[:notice] = "You won!" 	
@@ -86,11 +86,11 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html')
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.loses = @user.loses + 1
 		@chall.wins = @chall.wins + 1
 		flash[:notice] = "You won!"    				
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.wins = @user.wins + 1
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"    				
@@ -115,11 +115,11 @@ class GameController < ApplicationController
 		redirect_to('/login/index.html')
 		return true;
 	end
-       	if(@g.move = "rock")
+       	if(@g.move == "rock")
 		@user.wins = @user.wins + 1
 		@chall.loses = @chall.loses + 1
 		flash[:notice] = "You lost :c"	
-       	elsif (@g.move = "scissors")
+       	elsif (@g.move == "scissors")
 		@user.ties = @user.ties + 1
 		@chall.ties = @chall.ties + 1
 		flash[:notice] = "Tie game"    		
